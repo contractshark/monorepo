@@ -1,0 +1,69 @@
+{
+  "name": "@contractshark/reporter",
+  "version": "0.10.0",
+  "description": "Reporter for ContractShark framework.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "clean": "rm -Rf ./dist",
+    "build": "npm run clean; npx tsc",
+    "test": "npx nyc npx ava --verbose"
+  },
+  "ava": {
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "files": [
+      "src/tests/*.test.ts",
+      "src/tests/**/*.test.ts"
+    ]
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "exclude": [
+      "src/tests"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/contractshark/framework.git"
+  },
+  "bugs": {
+    "url": "https://github.com/contractshark/framework/issues"
+  },
+  "homepage": "https://github.com/contractshark/framework#readme",
+  "keywords": [
+    "test",
+    "testing",
+    "spec",
+    "specification",
+    "hay",
+    "javascript",
+    "typescript",
+    "nodejs",
+    "tdd",
+    "unit",
+    "cli"
+  ],
+  "author": "  ",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^13.13.4",
+    "ava": "3.8.1",
+    "nyc": "^15.0.1",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@contractshark/logic": "^0.10.0",
+    "chalk": "^4.0.0"
+  }
+}

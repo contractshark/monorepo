@@ -1,0 +1,15 @@
+title: contractshark
+heading: a lightweight, open source and magic-free framework for testing Solidity smart contracts.
+logo: /assets/images/contractshark.svg
+email: info@contractshark.org
+google_analytics:
+
+menu:
+  - url: "#contractshark-framework"
+    title: What is ContractShark
+  - url: "#installation"
+    title: Getting started
+
+remote_theme: contractshark/gp-theme
+plugins:
+  - jekyll-remote-theme

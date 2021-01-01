@@ -1,0 +1,54 @@
+{
+  "name": "@contractshark/spec",
+  "version": "0.17.1",
+  "description": "Test suits for ContractShark framework.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "npx tsc",
+    "test": "npx nyc npx ava --verbose"
+  },
+  "ava": {
+    "concurrency": 1,
+    "require": [
+      "ts-node/register"
+    ],
+    "extensions": [
+      "ts"
+    ],
+    "files": [
+      "src/tests/*.test.ts",
+      "src/tests/**/*.test.ts"
+    ]
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "exclude": [
+      "src/tests"
+    ]
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@0xcert/ethereum-utils-contracts": "2.0.1",
+    "@types/node": "13.13.4",
+    "ava": "3.8.1",
+    "nyc": "15.0.1",
+    "ts-node": "8.10.1",
+    "typescript": "3.8.3",
+    "web3": "1.2.7"
+  },
+  "peerDependencies": {
+    "web3": "*"
+  },
+  "dependencies": {
+    "@contractshark/reporter": "0.10.0",
+    "@contractshark/runner": "0.10.0",
+    "@contractshark/logic": "0.10.0",
+    "@contractshark/sandbox": "0.17.1"
+  }
+}

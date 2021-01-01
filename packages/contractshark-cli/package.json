@@ -1,0 +1,88 @@
+{
+  "name": "@contractshark/cli",
+  "version": "0.17.1",
+  "description": "Command-line tool for ContractShark framework.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "specron": "./bin/specron"
+  },
+  "scripts": {
+    "build": "npx tsc",
+    "test": "npx nyc npx ava --verbose"
+  },
+  "specron": {
+    "compiler": {
+      "build": "./build",
+      "match": [
+        "./src/**/*.sol"
+      ],
+      "severities": [
+        "error",
+        "warning"
+      ]
+    },
+    "flattener": {
+      "build": "./build",
+      "match": [
+        "./src/**/*.sol"
+      ],
+      "severities": [
+        "error",
+        "warning"
+      ]
+    },
+    "sandbox": {
+      "port": 8545
+    },
+    "test": {
+      "server": true,
+      "port": 8545,
+      "match": [
+        "./src/**/*.hay.*"
+      ],
+      "blockTime": null
+    },
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "ava": {
+    "concurrency": 1,
+    "files": [
+      "dist/tests/*.test.js",
+      "dist/tests/**/*.test.js"
+    ]
+  },
+  "nyc": {
+    "exclude": [
+      "src/tests"
+    ]
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/inquirer": "6.5.0",
+    "@types/node": "13.13.4",
+    "@types/yargs": "15.0.4",
+    "ava": "3.8.1",
+    "nyc": "15.0.1",
+    "solc": "0.6.1",
+    "ts-node": "8.10.1",
+    "typescript": "3.8.3",
+    "web3": "1.2.7"
+  },
+  "dependencies": {
+    "@contractshark/reporter": "0.10.0",
+    "@contractshark/compiler": "0.17.1",
+    "@contractshark/flattener": "0.17.1",
+    "@contractshark/init": "0.17.1",
+    "@contractshark/sandbox": "0.17.1",
+    "@contractshark/spec": "0.17.1",
+    "inquirer": "7.1.0",
+    "yargs": "15.3.1"
+  },
+  "peerDependencies": {
+    "solc": "*",
+    "web3": "*"
+  }
+}

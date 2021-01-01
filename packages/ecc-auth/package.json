@@ -1,0 +1,30 @@
+{
+  "name": "ecc-pki-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node.js",
+  "typings": "node.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/contractshark/framework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/express": "^4.17.7",
+    "@types/secp256k1": "^4.0.1",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "secp256k1": "^4.0.2"
+  },
+  "files": [
+    "*.js",
+    "*.ts"
+  ]
+}

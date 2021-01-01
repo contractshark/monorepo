@@ -1,0 +1,47 @@
+{
+  "name": "@contractshark/init",
+  "version": "0.17.1",
+  "description": "Project generator for ContractShark framework.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "npx tsc",
+    "test": "npx nyc npx ava --verbose"
+  },
+  "ava": {
+    "concurrency": 1,
+    "require": [
+      "ts-node/register"
+    ],
+    "extensions": [
+      "ts"
+    ],
+    "files": [
+      "src/tests/*.test.ts",
+      "src/tests/**/*.test.ts"
+    ]
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "exclude": [
+      "src/tests"
+    ]
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/fs-extra": "8.1.0",
+    "@types/node": "13.13.4",
+    "ava": "3.8.1",
+    "nyc": "15.0.1",
+    "ts-node": "8.10.1",
+    "typescript": "3.8.3"
+  },
+  "dependencies": {
+    "fs-extra": "9.0.0"
+  }
+}
