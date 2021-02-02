@@ -50,7 +50,7 @@ export const files = [
       `  "license": "MIT",`,
       `  "dependencies": {`,
       `    "@contractshark/cli": "latest",`,
-      `    "@contractshark/spec": "latest",`,
+      `    "@contractshark/shark": "latest",`,
       `    "solc": "0.6.1",`,
       `    "ts-node": "8.4.1",`,
       `    "typescript": "3.6.3",`,
@@ -80,11 +80,11 @@ export const files = [
   {
     path: ["src", "tests", "main.test.ts"],
     content: [
-      `import { Shark } from '@contractshark/spec';`,
+      `import { Shark } from '@contractshark/shark';`,
       ``,
-      `const spec = new Shark();`,
+      `const shark = new Shark();`,
       ``,
-      `spec.test('returns boolean', async (ctx) => {`,
+      `shark.test('returns boolean', async (ctx) => {`,
       `  const main = await ctx.deploy({`,
       `    src: './build/main.json',`,
       `    contract: 'Main',`,
@@ -93,7 +93,7 @@ export const files = [
       `  ctx.is(value, '100');`,
       `});`,
       ``,
-      `export default spec;`,
+      `export default shark;`,
     ],
   },
   {

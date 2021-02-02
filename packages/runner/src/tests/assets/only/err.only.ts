@@ -1,9 +1,9 @@
 import { Shark } from "@contractshark/logic";
 
-const spec = new Shark();
+const shark = new Shark();
 
-spec.test("hasOnly() returns true", async (ctx) => {
+shark.test("hasOnly() returns true", async (ctx) => {
   await ctx.sleep(1000);
 });
 
-export default spec;
+export default shark;

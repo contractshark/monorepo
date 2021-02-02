@@ -1,83 +1,83 @@
 import test from "ava";
 import { Shark } from "../..";
 
-test("method isRoot() indicates if the spec is nested or not", async (t) => {
+test("method isRoot() indicates if the shark is nested or not", async (t) => {
   const results = [];
-  const spec1 = new Shark();
-  const spec0 = new Shark();
-  spec0.spec("", spec1);
-  await spec0.perform();
-  t.true(spec0.isRoot());
-  t.false(spec1.isRoot());
+  const shark1 = new Shark();
+  const shark0 = new Shark();
+  shark0.shark("", shark1);
+  await shark0.perform();
+  t.true(shark0.isRoot());
+  t.false(shark1.isRoot());
 });
 
-test("method perform() executes spec stack", async (t) => {
+test("method perform() executes shark stack", async (t) => {
   const results = [];
-  const spec1 = new Shark();
-  spec1.before(() => {
+  const shark1 = new Shark();
+  shark1.before(() => {
     results.push("1-before-0");
   });
-  spec1.after(() => {
+  shark1.after(() => {
     results.push("1-after-0");
   });
-  spec1.beforeEach(() => {
+  shark1.beforeEach(() => {
     results.push("1-beforeeach-0");
   });
-  spec1.afterEach(() => {
+  shark1.afterEach(() => {
     results.push("1-aftereach-0");
   });
-  spec1.test("", () => {
+  shark1.test("", () => {
     results.push("1-0");
   });
-  spec1.test("", () => {
+  shark1.test("", () => {
     results.push("1-1");
   });
-  const spec0 = new Shark();
-  spec0.test("", () => {
+  const shark0 = new Shark();
+  shark0.test("", () => {
     results.push("0-0");
   });
-  spec0.before(() => {
+  shark0.before(() => {
     results.push("0-before-0");
   });
-  spec0.before(() => {
+  shark0.before(() => {
     results.push("0-before-1");
   });
-  spec0.beforeEach(() => {
+  shark0.beforeEach(() => {
     results.push("0-beforeeach-0");
   });
-  spec0.beforeEach(() => {
+  shark0.beforeEach(() => {
     results.push("0-beforeeach-1");
   });
-  spec0.after(() => {
+  shark0.after(() => {
     results.push("0-after-0");
   });
-  spec0.afterEach(() => {
+  shark0.afterEach(() => {
     results.push("0-aftereach-0");
   });
-  spec0.before(() => {
+  shark0.before(() => {
     results.push("0-before-2");
   });
-  spec0.beforeEach(() => {
+  shark0.beforeEach(() => {
     results.push("0-beforeeach-2");
   });
-  spec0.after(() => {
+  shark0.after(() => {
     results.push("0-after-1");
   });
-  spec0.after(() => {
+  shark0.after(() => {
     results.push("0-after-2");
   });
-  spec0.afterEach(() => {
+  shark0.afterEach(() => {
     results.push("0-aftereach-1");
   });
-  spec0.afterEach(() => {
+  shark0.afterEach(() => {
     results.push("0-aftereach-2");
   });
-  spec0.spec("", spec1);
-  spec0.spec("", spec1);
-  spec0.test("", () => {
+  shark0.shark("", shark1);
+  shark0.shark("", shark1);
+  shark0.test("", () => {
     results.push("0-1");
   });
-  await spec0.perform();
+  await shark0.perform();
   t.deepEqual(results, [
     "0-before-0",
     "0-before-1",
@@ -144,38 +144,38 @@ test("method perform() executes spec stack", async (t) => {
 
 test("method perform() ignores skipped tests", async (t) => {
   const results = [];
-  const spec0 = new Shark();
-  spec0.skip("", () => {
+  const shark0 = new Shark();
+  shark0.skip("", () => {
     results.push("0-0");
   });
-  spec0.before(() => {
+  shark0.before(() => {
     results.push("0-before-0");
   });
-  spec0.beforeEach(() => {
+  shark0.beforeEach(() => {
     results.push("0-beforeeach-0");
   });
-  spec0.after(() => {
+  shark0.after(() => {
     results.push("0-after-0");
   });
-  spec0.afterEach(() => {
+  shark0.afterEach(() => {
     results.push("0-aftereach-0");
   });
-  spec0.before(() => {
+  shark0.before(() => {
     results.push("0-before-1");
   });
-  spec0.beforeEach(() => {
+  shark0.beforeEach(() => {
     results.push("0-beforeeach-1");
   });
-  spec0.after(() => {
+  shark0.after(() => {
     results.push("0-after-1");
   });
-  spec0.afterEach(() => {
+  shark0.afterEach(() => {
     results.push("0-aftereach-1");
   });
-  spec0.test("", () => {
+  shark0.test("", () => {
     results.push("0-1");
   });
-  await spec0.perform();
+  await shark0.perform();
   t.deepEqual(results, [
     "0-before-0",
     "0-before-1",
@@ -191,41 +191,41 @@ test("method perform() ignores skipped tests", async (t) => {
 
 test("method perform() performs only selected tests", async (t) => {
   const results = [];
-  const spec0 = new Shark();
-  spec0.before(() => {
+  const shark0 = new Shark();
+  shark0.before(() => {
     results.push("0-before-0");
   });
-  spec0.beforeEach(() => {
+  shark0.beforeEach(() => {
     results.push("0-beforeeach-0");
   });
-  spec0.after(() => {
+  shark0.after(() => {
     results.push("0-after-0");
   });
-  spec0.afterEach(() => {
+  shark0.afterEach(() => {
     results.push("0-aftereach-0");
   });
-  spec0.before(() => {
+  shark0.before(() => {
     results.push("0-before-1");
   });
-  spec0.beforeEach(() => {
+  shark0.beforeEach(() => {
     results.push("0-beforeeach-1");
   });
-  spec0.after(() => {
+  shark0.after(() => {
     results.push("0-after-1");
   });
-  spec0.afterEach(() => {
+  shark0.afterEach(() => {
     results.push("0-aftereach-1");
   });
-  spec0.test("", () => {
+  shark0.test("", () => {
     results.push("0-0");
   });
-  spec0.only("", () => {
+  shark0.only("", () => {
     results.push("0-1");
   });
-  spec0.test("", () => {
+  shark0.test("", () => {
     results.push("0-2");
   });
-  await spec0.perform();
+  await shark0.perform();
   t.deepEqual(results, [
     "0-before-0",
     "0-before-1",
@@ -239,27 +239,27 @@ test("method perform() performs only selected tests", async (t) => {
   ]);
 });
 
-test("method spec() appends new spec with shared stage instance", async (t) => {
-  const spec2 = new Shark();
-  const spec1 = new Shark();
-  const spec0 = new Shark();
-  spec1.spec("", spec2);
-  spec0.spec("", spec1);
-  t.true(spec2.stage === spec1.stage);
-  t.true(spec2.stage === spec0.stage);
-  t.true(spec1.stage === spec0.stage);
+test("method shark() appends new shark with shared stage instance", async (t) => {
+  const shark2 = new Shark();
+  const shark1 = new Shark();
+  const shark0 = new Shark();
+  shark1.shark("", shark2);
+  shark0.shark("", shark1);
+  t.true(shark2.stage === shark1.stage);
+  t.true(shark2.stage === shark0.stage);
+  t.true(shark1.stage === shark0.stage);
 });
 
 test("context instance is shared between atomic stack", async (t) => {
-  const spec = new Shark();
+  const shark = new Shark();
   const ctxs = [];
-  spec.beforeEach((ctx) => {
+  shark.beforeEach((ctx) => {
     ctxs.push(ctx);
   });
-  spec.test("", (ctx) => {
+  shark.test("", (ctx) => {
     ctxs.push(ctx);
   });
-  spec.afterEach((ctx) => {
+  shark.afterEach((ctx) => {
     ctxs.push(ctx);
   });
   t.true(ctxs[0] === ctxs[1]);

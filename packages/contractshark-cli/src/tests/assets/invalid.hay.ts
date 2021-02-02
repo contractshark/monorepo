@@ -1,13 +1,13 @@
-import { Shark } from "@contractshark/spec";
+import { Shark } from "@contractshark/shark";
 
-const spec = new Shark();
+const shark = new Shark();
 
-spec.test("foo", async (context) => {
+shark.test("foo", async (context) => {
   context.true(true);
 });
 
-spec.test("bar", async (context) => {
+shark.test("bar", async (context) => {
   context.true(false);
 });
 
-export default spec;
+export default shark;

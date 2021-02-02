@@ -53,7 +53,7 @@ app.get("/neighbors/:id", (req, res) => {
       choreography.flowElements.find((element) => element.id == id)
     );
     if (!element) {
-      return res.status(501).send("could not find element with specified id");
+      return res.status(501).send("could not find element with sharkified id");
     }
     const predecessors = <FlowNode[]>(
       element.incoming.map((flow) => flow.sourceRef)

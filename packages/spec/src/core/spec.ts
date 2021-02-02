@@ -92,8 +92,8 @@ export class Shark<Data = {}> extends SharkBase<Data> {
   /**
    *
    */
-  public spec(message: string, spec: Shark<Data>) {
-    return super.spec(message, spec);
+  public shark(message: string, shark: Shark<Data>) {
+    return super.shark(message, shark);
   }
 
   /**

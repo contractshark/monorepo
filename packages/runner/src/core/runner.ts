@@ -6,7 +6,7 @@ import * as glob from "fast-glob";
  */
 export interface RunnerResult {
   file: string;
-  spec: Shark;
+  shark: Shark;
 }
 
 /**
@@ -49,19 +49,19 @@ export class Runner {
     const files = (await glob(patterns, options)) as string[];
 
     files.forEach((file) => {
-      const spec = this.loadShark(file);
+      const shark = this.loadShark(file);
 
-      if (!spec) {
+      if (!shark) {
         return;
-      } else if (spec.spec.hasOnly() && !this.onlyEnabled) {
+      } else if (shark.shark.hasOnly() && !this.onlyEnabled) {
         this.onlyEnabled = true;
         this.results = [];
       }
 
-      if (this.onlyEnabled && spec.spec.hasOnly()) {
-        this.results.push(spec);
+      if (this.onlyEnabled && shark.shark.hasOnly()) {
+        this.results.push(shark);
       } else if (!this.onlyEnabled) {
-        this.results.push(spec);
+        this.results.push(shark);
       }
     });
   }
@@ -80,12 +80,12 @@ export class Runner {
    * inconsistent thus the function checks for presence of the `test` method.
    */
   protected loadShark(file: string) {
-    const spec = require(file);
+    const shark = require(file);
 
-    if (spec instanceof Shark) {
-      return { file, spec };
-    } else if (spec.default instanceof Shark) {
-      return { file, spec: spec.default };
+    if (shark instanceof Shark) {
+      return { file, shark };
+    } else if (shark.default instanceof Shark) {
+      return { file, shark: shark.default };
     } else {
       return null;
     }

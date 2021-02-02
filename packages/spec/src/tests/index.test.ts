@@ -1,18 +1,18 @@
 import test from "ava";
-import * as spec from "..";
+import * as shark from "..";
 
 test("exposes Context class", async (t) => {
-  t.true(!!spec.Context);
+  t.true(!!shark.Context);
 });
 
 test("exposes Runner class", async (t) => {
-  t.true(!!spec.Runner);
+  t.true(!!shark.Runner);
 });
 
 test("exposes Shark class", async (t) => {
-  t.true(!!spec.Shark);
+  t.true(!!shark.Shark);
 });
 
 test("exposes Stage class", async (t) => {
-  t.true(!!spec.Stage);
+  t.true(!!shark.Stage);
 });

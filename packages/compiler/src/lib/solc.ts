@@ -150,9 +150,9 @@ export interface SolcOutput {
         abi: any[];
         // See the Metadata Output documentation (serialised JSON string).
         metadata: string;
-        // User documentation (natspec).
+        // User documentation (natshark).
         userdoc: any;
-        // Developer documentation (natspec).
+        // Developer documentation (natshark).
         devdoc: any;
         // Intermediate representation (string).
         ir: string;

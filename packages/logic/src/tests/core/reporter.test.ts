@@ -59,7 +59,7 @@ test("triggers recipe callbacks", async (t) => {
   });
 });
 
-test("memorizes spec block level", async (t) => {
+test("memorizes shark block level", async (t) => {
   const reporter = new Reporter();
   reporter.note({
     type: "SharkStartNote",

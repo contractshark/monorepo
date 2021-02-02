@@ -23,7 +23,7 @@ test.skip("foo", async (t) => {
 // weights.test('throws when trying to mint 2 NFTs with the same claim', async (context, stage) => {
 //   context.is(true, true);
 // });
-// weights.spec('Contract: NFTokenMock', colors);
+// weights.shark('Contract: NFTokenMock', colors);
 // weights.test('throws when trying to mint NFT to 0x0 address', async (context, stage) => {
 //   context.is(true, true);
 //   context.is(true, true);
@@ -37,7 +37,7 @@ test.skip("foo", async (t) => {
 // base.skip('throws when trying to approve NFT ID which it does not own', async (context, stage) => {
 //   context.is(true, true);
 // });
-// base.spec('Contract: NFTokenShark', weights);
+// base.shark('Contract: NFTokenShark', weights);
 // base.test('throws when trying to approve NFT ID which it already owns', async (context, stage) => {
 //   context.is(true, true);
 // });

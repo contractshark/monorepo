@@ -21,7 +21,7 @@ type ContextHandler<Data> = (
 interface PerformRecipes<Data> {
   message: string;
   handler?: ContextHandler<Data>;
-  spec?: Shark<Data>;
+  shark?: Shark<Data>;
 }
 
 /**
@@ -132,19 +132,19 @@ export class Shark<Data = {}> {
   /**
    *
    */
-  public spec(message: string, spec: Shark<Data>) {
-    const known = this.performRecipes.filter((r) => r.spec === spec).length > 0;
+  public shark(message: string, shark: Shark<Data>) {
+    const known = this.performRecipes.filter((r) => r.shark === shark).length > 0;
     if (!known) {
-      spec.parent = this;
-      spec.stage = this.stage;
+      shark.parent = this;
+      shark.stage = this.stage;
       []
         .concat(this.beforeEachHandlers)
         .reverse()
-        .forEach((h) => spec.beforeEach(h, false));
-      this.afterEachHandlers.forEach((h) => spec.afterEach(h));
+        .forEach((h) => shark.beforeEach(h, false));
+      this.afterEachHandlers.forEach((h) => shark.afterEach(h));
     }
 
-    this.performRecipes.push({ message, spec });
+    this.performRecipes.push({ message, shark });
 
     return this;
   }
@@ -187,7 +187,7 @@ export class Shark<Data = {}> {
     await this.performBefore();
 
     for (const recipe of this.performRecipes) {
-      if (recipe.spec) {
+      if (recipe.shark) {
         await this.performShark(recipe);
       } else {
         await this.performTest(recipe);
@@ -227,7 +227,7 @@ export class Shark<Data = {}> {
       message: recipe.message,
     });
 
-    await recipe.spec.perform();
+    await recipe.shark.perform();
 
     this.stage.reporter.note({
       type: "SharkEndNote",

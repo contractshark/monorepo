@@ -1,22 +1,22 @@
 import { Shark } from "../..";
 
-const subspec = new Shark();
+const subshark = new Shark();
 
-subspec.test("provides asserts", (ctx) => {
+subshark.test("provides asserts", (ctx) => {
   ctx.true(true);
 });
 
-const spec = new Shark();
+const shark = new Shark();
 
-spec.test("provides asserts", (ctx) => {
+shark.test("provides asserts", (ctx) => {
   ctx.true(true);
 });
 
-spec.test("provides web3", async (ctx) => {
+shark.test("provides web3", async (ctx) => {
   const accounts = await ctx.stage.web3.eth.getAccounts();
   ctx.is(accounts[0].substr(0, 2), "0x");
 });
 
-spec.spec("can nest specs", subspec);
+shark.shark("can nest sharks", subshark);
 
-export default spec;
+export default shark;

@@ -1,4 +1,4 @@
-import { Runner, Shark, Stage, Reporter } from "@contractshark/spec";
+import { Runner, Shark, Stage, Reporter } from "@contractshark/shark";
 import { Sandbox } from "@contractshark/sandbox";
 import Web3 from "web3";
 import { getConfig } from "../lib/env";
@@ -23,7 +23,7 @@ export default async function (argv) {
   await runner.require(...config.test.match);
   runner.results.forEach((result) => {
     const message = result.file.substr(process.cwd().length + 1);
-    test.spec(message, result.spec);
+    test.shark(message, result.shark);
   });
 
   try {
