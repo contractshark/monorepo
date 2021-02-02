@@ -38,7 +38,7 @@
   "devDependencies": {
     "doctoc": "~1.4.0",
     "async-child-process": "~1.1.1",
-    "bundlewatch": "~0.2.1",
+    "bundlewatch": "~0.3.2",
     "coveralls": "~3.0.0",
     "ganache-cli": "6.8.0-istanbul.0",
     "lcov-result-merger": "~3.0.0",
