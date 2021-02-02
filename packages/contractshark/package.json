@@ -34,7 +34,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/fs-extra": "8.1.0",
+    "@types/fs-extra": "9.0.6",
     "@types/node": "13.13.4",
     "ava": "3.8.1",
     "nyc": "15.0.1",
