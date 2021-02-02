@@ -59,6 +59,6 @@ docker build -t eth-orchestrate .
 docker run --rm -p 3000:3000 --name eth-orchestrate -it eth-orchestrate
 ```
 
-## License 
+## License
 
 MIT

@@ -1,4 +1,4 @@
-import BpmnModdle, { Definitions } from 'bpmn-moddle';
+import BpmnModdle, { Definitions } from "bpmn-moddle";
 const moddle = new BpmnModdle();
 
 /**
