@@ -46,7 +46,7 @@
   "dependencies": {
     "@contractshark/flattener": "0.17.1",
     "@contractshark/reporter": "0.10.0",
-    "fast-glob": "3.2.2",
+    "fast-glob": "3.2.5",
     "fs-extra": "9.0.0"
   },
   "peerDependencies": {

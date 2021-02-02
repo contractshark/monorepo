@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@contractshark/reporter": "0.10.0",
-    "fast-glob": "3.2.2",
+    "fast-glob": "3.2.5",
     "sol-merger": "2.0.1"
   }
 }
