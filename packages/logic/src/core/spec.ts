@@ -133,7 +133,8 @@ export class Shark<Data = {}> {
    *
    */
   public shark(message: string, shark: Shark<Data>) {
-    const known = this.performRecipes.filter((r) => r.shark === shark).length > 0;
+    const known =
+      this.performRecipes.filter((r) => r.shark === shark).length > 0;
     if (!known) {
       shark.parent = this;
       shark.stage = this.stage;
