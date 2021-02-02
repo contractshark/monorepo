@@ -21,13 +21,13 @@ type ContextHandler<Data> = (
 interface PerformRecipes<Data> {
   message: string;
   handler?: ContextHandler<Data>;
-  spec?: Spec<Data>;
+  spec?: Shark<Data>;
 }
 
 /**
  *
  */
-export class Spec<Data = {}> {
+export class Shark<Data = {}> {
   protected beforeHandlers: StageHandler<Data>[] = [];
   protected beforeEachHandlers: ContextHandler<Data>[] = [];
   protected afterHandlers: StageHandler<Data>[] = [];
@@ -35,12 +35,12 @@ export class Spec<Data = {}> {
   protected performRecipes: PerformRecipes<Data>[] = [];
   protected onlyEnabled: boolean = false;
   protected _stage: Stage<Data>;
-  public parent: Spec<Data>;
+  public parent: Shark<Data>;
 
   /**
    *
    */
-  public constructor(stage?: Stage<Data>, parent?: Spec<Data>) {
+  public constructor(stage?: Stage<Data>, parent?: Shark<Data>) {
     this.parent = parent || null;
     this.stage = stage || this.createStage();
   }
@@ -132,7 +132,7 @@ export class Spec<Data = {}> {
   /**
    *
    */
-  public spec(message: string, spec: Spec<Data>) {
+  public spec(message: string, spec: Shark<Data>) {
     const known = this.performRecipes.filter((r) => r.spec === spec).length > 0;
     if (!known) {
       spec.parent = this;
@@ -188,7 +188,7 @@ export class Spec<Data = {}> {
 
     for (const recipe of this.performRecipes) {
       if (recipe.spec) {
-        await this.performSpec(recipe);
+        await this.performShark(recipe);
       } else {
         await this.performTest(recipe);
       }
@@ -219,18 +219,18 @@ export class Spec<Data = {}> {
   /**
    *
    */
-  protected async performSpec(recipe: PerformRecipes<Data>) {
+  protected async performShark(recipe: PerformRecipes<Data>) {
     const start = Date.now();
 
     this.stage.reporter.note({
-      type: "SpecStartNote",
+      type: "SharkStartNote",
       message: recipe.message,
     });
 
     await recipe.spec.perform();
 
     this.stage.reporter.note({
-      type: "SpecEndNote",
+      type: "SharkEndNote",
       duration: Date.now() - start,
     });
   }

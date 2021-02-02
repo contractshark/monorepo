@@ -1,8 +1,8 @@
 import test from "ava";
 import * as hayspec from "..";
 
-test("exposes Spec class", async (t) => {
-  t.is(!!hayspec.Spec, true);
+test("exposes Shark class", async (t) => {
+  t.is(!!hayspec.Shark, true);
 });
 
 test("exposes Stage class", async (t) => {

@@ -1,11 +1,11 @@
-import { Spec } from "./spec";
+import { Shark } from "./spec";
 import * as runner from "@contractshark/runner";
 
 /**
  *
  */
 export interface RunnerResult extends runner.RunnerResult {
-  spec: Spec;
+  spec: Shark;
 }
 
 /**
@@ -17,12 +17,12 @@ export class Runner extends runner.Runner {
   /**
    *
    */
-  protected loadSpec(file: string) {
+  protected loadShark(file: string) {
     const spec = require(file);
 
-    if (spec instanceof Spec) {
+    if (spec instanceof Shark) {
       return { file, spec };
-    } else if (spec.default instanceof Spec) {
+    } else if (spec.default instanceof Shark) {
       return { file, spec: spec.default };
     }
   }

@@ -1,6 +1,6 @@
-import { Spec } from "@contractshark/logic";
+import { Shark } from "@contractshark/logic";
 
-const spec = new Spec();
+const spec = new Shark();
 
 spec.test("hasOnly() returns true", async (ctx) => {
   await ctx.sleep(1000);

@@ -80,9 +80,9 @@ export const files = [
   {
     path: ["src", "tests", "main.test.ts"],
     content: [
-      `import { Spec } from '@contractshark/spec';`,
+      `import { Shark } from '@contractshark/spec';`,
       ``,
-      `const spec = new Spec();`,
+      `const spec = new Shark();`,
       ``,
       `spec.test('returns boolean', async (ctx) => {`,
       `  const main = await ctx.deploy({`,

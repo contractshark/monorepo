@@ -1,12 +1,12 @@
-import { Spec } from "../..";
+import { Shark } from "../..";
 
-const subspec = new Spec();
+const subspec = new Shark();
 
 subspec.test("provides asserts", (ctx) => {
   ctx.true(true);
 });
 
-const spec = new Spec();
+const spec = new Shark();
 
 spec.test("provides asserts", (ctx) => {
   ctx.true(true);

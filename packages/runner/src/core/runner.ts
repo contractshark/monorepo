@@ -1,4 +1,4 @@
-import { Spec } from "@contractshark/logic";
+import { Shark } from "@contractshark/logic";
 import * as glob from "fast-glob";
 
 /**
@@ -6,7 +6,7 @@ import * as glob from "fast-glob";
  */
 export interface RunnerResult {
   file: string;
-  spec: Spec;
+  spec: Shark;
 }
 
 /**
@@ -49,7 +49,7 @@ export class Runner {
     const files = (await glob(patterns, options)) as string[];
 
     files.forEach((file) => {
-      const spec = this.loadSpec(file);
+      const spec = this.loadShark(file);
 
       if (!spec) {
         return;
@@ -79,12 +79,12 @@ export class Runner {
    * NOTE: Due to different NPM package managers, the `instanceof` check my be
    * inconsistent thus the function checks for presence of the `test` method.
    */
-  protected loadSpec(file: string) {
+  protected loadShark(file: string) {
     const spec = require(file);
 
-    if (spec instanceof Spec) {
+    if (spec instanceof Shark) {
       return { file, spec };
-    } else if (spec.default instanceof Spec) {
+    } else if (spec.default instanceof Shark) {
       return { file, spec: spec.default };
     } else {
       return null;

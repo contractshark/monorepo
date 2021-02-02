@@ -1,16 +1,16 @@
 /**
  *
  */
-export interface SpecStartNote {
-  type: "SpecStartNote";
+export interface SharkStartNote {
+  type: "SharkStartNote";
   message: string;
 }
 
 /**
  *
  */
-export interface SpecEndNote {
-  type: "SpecEndNote";
+export interface SharkEndNote {
+  type: "SharkEndNote";
   duration: number;
 }
 

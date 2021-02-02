@@ -1,6 +1,6 @@
 import {
-  SpecStartNote,
-  SpecEndNote,
+  SharkStartNote,
+  SharkEndNote,
   TestStartNote,
   TestEndNote,
   AssertionNote,
@@ -10,8 +10,8 @@ import {
  *
  */
 export type ReporterNote =
-  | SpecStartNote
-  | SpecEndNote
+  | SharkStartNote
+  | SharkEndNote
   | TestStartNote
   | TestEndNote
   | AssertionNote;
@@ -23,8 +23,8 @@ export interface ReporterRecipe {
   onBegin?: () => void;
   onEnd?: () => void;
   onNote?: (note: ReporterNote, change: ReporterLevelChange) => void;
-  onSpecStartNote?: (note: SpecStartNote) => void;
-  onSpecEndNote?: (note: SpecEndNote) => void;
+  onSharkStartNote?: (note: SharkStartNote) => void;
+  onSharkEndNote?: (note: SharkEndNote) => void;
   onTestStartNote?: (note: TestStartNote) => void;
   onTestEndNote?: (note: TestEndNote) => void;
   onAssertionNote?: (note: AssertionNote) => void;
@@ -69,12 +69,12 @@ export class Reporter {
   public note(note: ReporterNote) {
     const level = this.level;
 
-    if (note.type === "SpecStartNote") {
+    if (note.type === "SharkStartNote") {
       this.level++;
-      this.onSpecStartNote(note);
-    } else if (note.type === "SpecEndNote") {
+      this.onSharkStartNote(note);
+    } else if (note.type === "SharkEndNote") {
       this.level--;
-      this.onSpecEndNote(note);
+      this.onSharkEndNote(note);
     } else if (note.type === "TestStartNote") {
       this.level++;
       this.onTestStartNote(note);
@@ -117,18 +117,18 @@ export class Reporter {
   /**
    *
    */
-  protected onSpecStartNote(note: SpecStartNote) {
-    if (typeof this.recipe.onSpecStartNote === "function") {
-      this.recipe.onSpecStartNote(note);
+  protected onSharkStartNote(note: SharkStartNote) {
+    if (typeof this.recipe.onSharkStartNote === "function") {
+      this.recipe.onSharkStartNote(note);
     }
   }
 
   /**
    *
    */
-  protected onSpecEndNote(note: SpecEndNote) {
-    if (typeof this.recipe.onSpecEndNote === "function") {
-      this.recipe.onSpecEndNote(note);
+  protected onSharkEndNote(note: SharkEndNote) {
+    if (typeof this.recipe.onSharkEndNote === "function") {
+      this.recipe.onSharkEndNote(note);
     }
   }
 

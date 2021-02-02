@@ -1,6 +1,6 @@
-import { Spec } from "@contractshark/spec";
+import { Shark } from "@contractshark/spec";
 
-const spec = new Spec();
+const spec = new Shark();
 
 spec.test("foo", async (context) => {
   context.true(true);

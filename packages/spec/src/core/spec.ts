@@ -1,4 +1,4 @@
-import { Spec as SpecBase } from "@contractshark/logic";
+import { Shark as SharkBase } from "@contractshark/logic";
 import { DefaultReporter } from "@contractshark/reporter";
 import { Sandbox } from "@contractshark/sandbox";
 import { Stage } from "./stage";
@@ -21,14 +21,14 @@ type ContextHandler<Data> = (
 /**
  *
  */
-export class Spec<Data = {}> extends SpecBase<Data> {
+export class Shark<Data = {}> extends SharkBase<Data> {
   protected _stage: Stage<Data>;
-  public parent: Spec<Data>;
+  public parent: Shark<Data>;
 
   /**
    *
    */
-  public constructor(stage?: Stage<Data>, parent?: Spec<Data>) {
+  public constructor(stage?: Stage<Data>, parent?: Shark<Data>) {
     super(stage, parent);
   }
 
@@ -92,7 +92,7 @@ export class Spec<Data = {}> extends SpecBase<Data> {
   /**
    *
    */
-  public spec(message: string, spec: Spec<Data>) {
+  public spec(message: string, spec: Shark<Data>) {
     return super.spec(message, spec);
   }
 

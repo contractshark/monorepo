@@ -1,3 +1,3 @@
-import { Spec } from "@contractshark/logic";
+import { Shark } from "@contractshark/logic";
 
-export default new Spec();
+export default new Shark();

@@ -1,4 +1,4 @@
-import { Runner, Spec, Stage, Reporter } from "@contractshark/spec";
+import { Runner, Shark, Stage, Reporter } from "@contractshark/spec";
 import { Sandbox } from "@contractshark/sandbox";
 import Web3 from "web3";
 import { getConfig } from "../lib/env";
@@ -13,7 +13,7 @@ export default async function (argv) {
   const web3 = new Web3(sandbox.provider);
   const reporter = new Reporter();
   const stage = new Stage(web3, reporter);
-  const test = new Spec(stage);
+  const test = new Shark(stage);
 
   if (config.test.server) {
     await sandbox.listen();

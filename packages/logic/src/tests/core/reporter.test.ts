@@ -6,8 +6,8 @@ test("triggers recipe callbacks", async (t) => {
     onBegin: 0,
     onEnd: 0,
     onNote: 0,
-    onSpecStartNote: 0,
-    onSpecEndNote: 0,
+    onSharkStartNote: 0,
+    onSharkEndNote: 0,
     onTestStartNote: 0,
     onTestEndNote: 0,
     onAssertionNote: 0,
@@ -16,19 +16,19 @@ test("triggers recipe callbacks", async (t) => {
     onBegin: () => stat.onBegin++,
     onEnd: () => stat.onEnd++,
     onNote: () => stat.onNote++,
-    onSpecStartNote: () => stat.onSpecStartNote++,
-    onSpecEndNote: () => stat.onSpecEndNote++,
+    onSharkStartNote: () => stat.onSharkStartNote++,
+    onSharkEndNote: () => stat.onSharkEndNote++,
     onTestStartNote: () => stat.onTestStartNote++,
     onTestEndNote: () => stat.onTestEndNote++,
     onAssertionNote: () => stat.onAssertionNote++,
   });
   reporter.begin();
   reporter.note({
-    type: "SpecStartNote",
+    type: "SharkStartNote",
     message: "foo",
   });
   reporter.note({
-    type: "SpecEndNote",
+    type: "SharkEndNote",
     duration: 0,
   });
   reporter.note({
@@ -51,8 +51,8 @@ test("triggers recipe callbacks", async (t) => {
     onBegin: 1,
     onEnd: 1,
     onNote: 5,
-    onSpecStartNote: 1,
-    onSpecEndNote: 1,
+    onSharkStartNote: 1,
+    onSharkEndNote: 1,
     onTestStartNote: 1,
     onTestEndNote: 1,
     onAssertionNote: 1,
@@ -62,7 +62,7 @@ test("triggers recipe callbacks", async (t) => {
 test("memorizes spec block level", async (t) => {
   const reporter = new Reporter();
   reporter.note({
-    type: "SpecStartNote",
+    type: "SharkStartNote",
     message: "foo",
   });
   reporter.note({
@@ -71,7 +71,7 @@ test("memorizes spec block level", async (t) => {
     perform: true,
   });
   reporter.note({
-    type: "SpecEndNote",
+    type: "SharkEndNote",
     duration: 0,
   });
   t.is(reporter.level, 1);

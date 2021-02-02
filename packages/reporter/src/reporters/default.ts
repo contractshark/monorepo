@@ -1,7 +1,7 @@
 import {
   Reporter,
-  SpecStartNote,
-  SpecEndNote,
+  SharkStartNote,
+  SharkEndNote,
   TestStartNote,
   TestEndNote,
   AssertionNote,
@@ -81,7 +81,7 @@ export class DefaultReporter extends Reporter {
   /**
    *
    */
-  protected onSpecStartNote(note: SpecStartNote) {
+  protected onSharkStartNote(note: SharkStartNote) {
     this.printer.write(this.printer.indent(this.level, ""), note.message);
     this.printer.end();
   }
