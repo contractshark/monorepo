@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: ["12.x", "14.x"]
+        node-version: ["14.x"]
 
     steps:
       - uses: actions/checkout@v2
@@ -21,7 +21,9 @@ jobs:
       - name: lerna install, build, and test
         run: |
           npm install lerna -g
-          npm install
-          lerna bootstrap --no-ci
+          yarn install
+
         env:
           CI: ''
+      - run: lerna link
+      - run: lerna exec yarn install
