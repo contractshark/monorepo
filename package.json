@@ -3,16 +3,12 @@
   "description": "contract shark typescript monorepo",
   "private": true,
   "workspaces": [
-    "packages/*",
-    "examples/*",
-    "contracts/*",
-    "types/*",
-    "CI/*"
+    "packages/*"
   ],
   "scripts": {
     "docs": "doctoc --title '**Table of content**' README.md",
     "clean": "lerna run clean",
-    "build": "lerna run build",
+    "build": "yarn install && npx tsc -b",
     "pub": "lerna publish",
     "test": "lerna run test",
     "prettier": "prettier --write '**/*.{ts,tsx,json,md}' --config .prettierrc",
