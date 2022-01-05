@@ -1,10 +1,10 @@
-![Build Status](https://travis-ci.org/hayspec/framework.svg?branch=master)&nbsp;[![NPM Version](https://badge.fury.io/js/@hayspec%2Frunner.svg)](https://badge.fury.io/js/%40hayspec%2Frunner)
+### `runner`
 
-This package provides the logic for discovering and performing test files. It's included in the ContractShark CLI, but you can use it to run tests directly from your NodeJS application.
+> This package provides the logic for discovering and performing test files.
 
 ```ts
 import { Spec } from "@contractshark/logic";
-import { Runner } from "@hayspec/runner";
+import { Runner } from "@contractshark/runner";
 
 const runner = new Runner();
 runner.require("./foo/**/*.test.js", "!./foo/**/foo.test.js");
